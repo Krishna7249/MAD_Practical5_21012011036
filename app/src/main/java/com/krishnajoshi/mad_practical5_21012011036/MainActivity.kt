@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.AlarmClock
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 
@@ -21,6 +23,22 @@ class MainActivity : AppCompatActivity() {
         callButton.setOnClickListener{
             call(editText.text.toString())
         }
+        val callLogButton = findViewById<Button>(R.id.calllog_btn)
+        callLogButton.setOnClickListener {
+            callLog()
+        }
+        val galleryButton = findViewById<Button>(R.id.gallery_btn)
+        galleryButton.setOnClickListener {
+            gallery()
+        }
+        val cameraButton = findViewById<Button>(R.id.camera_btn)
+        cameraButton.setOnClickListener {
+            camera()
+        }
+        val alarmButton = findViewById<Button>(R.id.alarm_btn)
+        alarmButton.setOnClickListener {
+            alarm()
+        }
     }
 
     fun openBrowser(string: String) {
@@ -32,18 +50,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun callLog() {
-
+        Intent(Intent.ACTION_VIEW).setType("CallLog.Calls.CONTENT_TYPE").also { startActivity(it) }
     }
 
     fun gallery() {
-
+        Intent(Intent.ACTION_PICK).setType("image/*").also { startActivity(it) }
     }
 
     fun camera() {
-
+        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { startActivity(it) }
     }
 
     fun alarm() {
-
+        Intent(AlarmClock.ACTION_SHOW_ALARMS).also{startActivity(it)}
     }
 }
