@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.AlarmClock
+import android.provider.CallLog
 import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
@@ -19,9 +20,9 @@ class MainActivity : AppCompatActivity() {
             openBrowser(editText.text.toString())
         }
         val callButton = findViewById<Button>(R.id.call_btn)
-        val dialno : EditText = findViewById(R.id.Phone)
+        val editCall : EditText = findViewById(R.id.Phone)
         callButton.setOnClickListener{
-            call(editText.text.toString())
+            call(editCall.text.toString())
         }
         val callLogButton = findViewById<Button>(R.id.calllog_btn)
         callLogButton.setOnClickListener {
@@ -41,8 +42,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun openBrowser(string: String) {
-        Intent(Intent.ACTION_VIEW, Uri.parse(string)).also { startActivity(it) }
+    fun openBrowser(url: String) {
+        Intent(Intent.ACTION_VIEW, Uri.parse(url)).also { startActivity(it) }
     }
 
     fun call(number: String) {
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun callLog() {
-        Intent(Intent.ACTION_VIEW).setType("CallLog.Calls.CONTENT_TYPE").also { startActivity(it) }
+        Intent(Intent.ACTION_VIEW).setType(CallLog.Calls.CONTENT_TYPE).also { startActivity(it) }
     }
 
     fun gallery() {
