@@ -1,6 +1,6 @@
 # MAD_Practical5_21012011036
 What is Intent? Write down types of Intent and types of Intent Action. Create an application which demonstrates implicit Intent for following features. 
-![p5](https://github.com/Krishna7249/MAD_Practical5_21012011036/assets/98690735/3a1ac91f-96d6-4cbf-b463-5d4452f444a9)  
+<img src="https://github.com/Krishna7249/MAD_Practical5_21012011036/assets/98690735/3a1ac91f-96d6-4cbf-b463-5d4452f444a9" width=50% height=50%>  
 1. Make call to specific number
 
 2. Open specific URL
